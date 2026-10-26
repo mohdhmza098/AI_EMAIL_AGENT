@@ -18,9 +18,7 @@
 <img src="https://img.shields.io/badge/IBM%20Bob-AI%20Coding%20Assistant-1261FE?style=for-the-badge&logo=ibm&logoColor=white" alt="IBM Bob"/>
 
 </div>
-✦ Workflow
 
-![AI Email Campaign Workflow](project_workflow.png)
 
 ---
 
@@ -34,7 +32,7 @@ This project combines **customer analytics and generative AI** to create persona
 
 <div align="center">
 
-<img src="assets/project_workflow.png" width="100%" alt="AI Email Campaign Automation Workflow"/>
+<img src="![AI Email Campaign Workflow](project_workflow.png)" width="100%" alt="AI Email Campaign Automation Workflow"/>
 
 </div>
 
