@@ -1,315 +1,114 @@
-::: {align="center"}
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:071A2F,45:0F6CBD,100:00D4FF&height=220&section=header&text=AI%20Email%20Campaign%20Agent&fontSize=38&fontColor=FFFFFF&animation=fadeIn&fontAlignY=38&desc=Customer%20Analytics%20%7C%20Generative%20AI%20%7C%20Smart%20Personalization&descAlignY=60&descSize=15" width="100%" alt="Project banner"/>{=html}
+<div align="center">
 
-<img src="https://img.shields.io/badge/IBM%20BOB-AI%20CODING%20ASSISTANT-1261FE?style=for-the-badge&logo=ibm&logoColor=white" alt="IBM Bob"/>{=html}
-<img src="https://img.shields.io/badge/STREAMLIT-WEB%20APP-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Streamlit"/>{=html}
-<img src="https://img.shields.io/badge/OPENROUTER-GENERATIVE%20AI-6B4EFF?style=for-the-badge" alt="OpenRouter"/>{=html}
-<img src="https://img.shields.io/badge/PYTHON-DATA%20PROCESSING-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>{=html}
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:071A2F,40:1261FE,100:00D4FF&height=200&section=header&text=AI%20EMAIL%20CAMPAIGN%20AGENT&fontSize=30&fontColor=FFFFFF&fontAlignY=38&desc=INTELLIGENT%20CUSTOMER%20PERSONALIZATION&descSize=14&descAlignY=60" width="100%" alt="AI Email Campaign Agent"/>
 
-Turn customer data into personalized marketing emails --- powered by AI.
+Turning Customer Data into Smarter Marketing with AI
 
-A lightweight Streamlit application that explores customer behaviour,
-segments customers by value, generates tailored email drafts with an
-LLM, and stores campaign history locally.
-:::
+Developed by Mohd Hamza
 
-✨ Project Overview
+<br>
 
-🎯 Objective                        ⚡ Workflow
+<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/> <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Streamlit"/> <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas"/> <img src="https://img.shields.io/badge/OpenRouter-AI%20Integration-7057FF?style=for-the-badge" alt="OpenRouter"/> <img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite"/> <img src="https://img.shields.io/badge/IBM%20Bob-AI%20Development-1261FE?style=for-the-badge&logo=ibm&logoColor=white" alt="IBM Bob"/>
 
-Reduce manual effort and make       Upload CSV → choose segment and
-marketing emails more relevant to   customer → select tone → generate
-each customer.                      email → save history.
+</div>
 
-Dataset: Customer Personality Analysis --- 2,240 rows and 29
-columns.
+✦ Project Overview
 
-🚨 Problem Statement
+An AI-powered marketing application that analyzes customer behaviour, categorizes customers by value, and generates personalized email drafts using customer-specific information.
 
-Marketing teams face two common challenges:
+The project combines data analytics, generative AI, and application development in one simple interface.
 
-Scale: Writing personalized emails for every customer takes
-time.
+◈ The Challenge
 
-Relevance: Generic bulk emails may ignore customer spending,
-purchase history, and income profiles.
+Generic marketing emails often overlook individual customer preferences and purchase behaviour. Writing personalized messages manually also takes time.
 
-This project combines customer-data analysis and AI-assisted drafting in
-one lightweight application without requiring a full CRM setup.
+Our solution: Use customer data and AI to make email creation faster, more relevant, and easier to manage.
 
-💡 Solution
-
-Segment customers into Low, Medium, and High value tiers.
-
-Generate customer-aware email drafts using an LLM and a selected
-tone.
-
-Persist generated emails in a local SQLite database with
-timestamps.
-
-Visualize customer segments, spending patterns, income
-distribution, and dataset summaries.
-
-Export individual email drafts and campaign history.
-
-Current scope: The application generates drafts for review; it
-does not automatically send emails.
-
-🖥️ Application Workflow
-
+⬡ Intelligent Workflow
 flowchart TD
-    A[Upload customer CSV] --> B[Load and enrich data]
-    B --> C[Calculate customer features]
-    C --> D{Choose workspace}
-    D --> E[Campaign Generator]
-    E --> F[Select segment, customer and tone]
-    F --> G[Build contextual prompt]
-    G --> H[OpenRouter LLM API]
-    H --> I[Display and download draft]
-    I --> J[(Save to SQLite history)]
-    D --> K[Analytics Dashboard]
-    K --> L[Segment, spending and income charts]
-    D --> M[History]
-    M --> N[Review records or export CSV]
+    A(["📂 CUSTOMER DATA<br/>Upload CSV"]) --> B["⚙️ DATA PROCESSING<br/>Python + Pandas"]
+    B --> C["📊 CUSTOMER ANALYTICS<br/>Spending & Purchases"]
+    C --> D{"CUSTOMER VALUE<br/>SEGMENTATION"}
+    D --> E["🟢 High Value"]
+    D --> F["🟡 Medium Value"]
+    D --> G["🔴 Low Value"]
+    E --> H["🤖 AI EMAIL GENERATION"]
+    F --> H
+    G --> H
+    H --> I["✉️ Personalized Email Draft<br/>OpenRouter API"]
+    I --> J[("🗄️ SQLite<br/>Campaign History")]
+    I --> K(["⬇️ Review & Download"])
+    C -.-> L["📈 Analytics Dashboard"]
+    J -.-> M["📋 View History / Export CSV"]
 
-🚀 Key Features
-
-Feature                             Description
-
-🧩 Three-tier segmentation      Low / Medium / High tiers based on
-Customer_Value.
-
-✉️ AI email generation          Generates a subject line and email
-body using customer context.
-
-🎚️ Selectable tone              Professional, Friendly, or Urgent.
-
-🔎 Segment filtering            Filter the customer list before
-selecting a customer.
-
-👤 Customer detail card         ID, income, total spending, total
-purchases, and segment.
-
-📈 Analytics dashboard          Segment distribution, average
-spending by segment, income
-histogram, and summary statistics.
-
-🗂️ Campaign history             Stores generated email records in
-SQLite with timestamps.
-
-⬇️ Downloads and export         Download an email as TXT or export
-history as CSV.
-
-🧮 Customer Segmentation Logic
-
-The application derives these features:
-
-Feature             Calculation
-
-Age               2026 - Year_Birth
-Total_Purchases   Web + Catalog + Store purchases
-Total_Spent       Sum of the product spending columns (Mnt*)
-Customer_Value    Total_Spent × Total_Purchases
-
-Customer_Value >= 15000  # High
-Customer_Value >= 5000   # Medium
-Customer_Value < 5000    # Low
-
-The segment label is included in the AI prompt to help tailor the email
-content.
-
-🧰 Technology Stack
-
-::: {align="center"}
-<img src="https://skillicons.dev/icons?i=python,sqlite,jupyter,github" alt="Python, SQLite, Jupyter, GitHub" height="58"/>{=html}
-<br/>{=html}
-<img src="https://img.shields.io/badge/Streamlit-Interactive%20UI-FF4B4B?style=flat-square&logo=streamlit&logoColor=white" alt="Streamlit"/>{=html}
-<img src="https://img.shields.io/badge/Pandas-Data%20Processing-150458?style=flat-square&logo=pandas&logoColor=white" alt="Pandas"/>{=html}
-<img src="https://img.shields.io/badge/OpenRouter-LLM%20Routing-6B4EFF?style=flat-square" alt="OpenRouter"/>{=html}
-<img src="https://img.shields.io/badge/IBM%20Bob-AI%20Coding%20Assistant-1261FE?style=flat-square&logo=ibm&logoColor=white" alt="IBM Bob"/>{=html}
-:::
-
-Layer                   Technology              Purpose
-
-UI framework            Streamlit               Interactive web
-application
-
-Data processing         pandas                  CSV loading, feature
-engineering, and
-analysis
-
-LLM client              OpenAI-compatible       Sends prompts to the
-Python SDK              configured model
-endpoint
-
-LLM routing             OpenRouter              Routes requests to
-openai/gpt-4o-mini
-
-Persistence             SQLite / sqlite3      Stores generated email
-history
-
-Environment             python-dotenv           Loads local environment
-configuration                                   variables
-
-📂 Project Structure
-
-AI_Email_Campaign_Agent/
-├── app.py                  # Streamlit UI and campaign workflow
-├── gemini.py               # OpenRouter LLM wrapper
-├── database.py             # SQLite storage and history functions
-├── requirements.txt        # Python dependencies
-├── marketing_campaign.csv  # Sample customer dataset
-├── history.db              # Local database, created at runtime
-├── main.ipynb              # Exploratory data analysis
-├── IBM_BOB_USAGE.md        # IBM Bob contribution log
-└── .env                    # Local API key; never commit this file
-
-⚙️ Run Locally
+    classDef input fill:#102A43,stroke:#00D4FF,color:#FFFFFF,stroke-width:2px
+    classDef process fill:#123C69,stroke:#4DA3FF,color:#FFFFFF,stroke-width:1.5px
+    classDef ai fill:#3C2678,stroke:#A78BFA,color:#FFFFFF,stroke-width:2px
+    classDef output fill:#075E54,stroke:#34D399,color:#FFFFFF,stroke-width:2px
+    class A input
+    class B,C,D,E,F,G,L process
+    class H,I ai
+    class J,K,M output
+✧ Key Features
+Smart Segmentation — Classifies customers into Low, Medium, and High value tiers.
+AI-Powered Emails — Generates personalized subject lines and email content.
+Flexible Tone Selection — Professional, Friendly, or Urgent.
+Customer Analytics — Explore spending patterns, income distribution, and segments.
+Campaign History — Stores generated emails using SQLite.
+Easy Export — Download email drafts and export campaign records.
+⚡ Technology Architecture
+Technology	Role
+Python	Application logic and feature engineering
+Pandas	Customer data processing
+Streamlit	Interactive web interface
+OpenRouter API	AI-powered email generation
+OpenAI-compatible SDK	Communication with the configured AI model
+SQLite	Local campaign history
+IBM Bob	AI-assisted development
+▶ Run the Project
 
 1. Clone the repository
 
 git clone https://github.com/sarishadeel206/AI_Email_Campaign_Agent.git
 cd AI_Email_Campaign_Agent
 
-2. Create and activate a virtual environment
-
-Windows PowerShell
-
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-
-macOS / Linux
-
-python -m venv .venv
-source .venv/bin/activate
-
-3. Install dependencies
+2. Install dependencies
 
 pip install -r requirements.txt
 
-Dependencies:
+3. Configure your API key
 
-streamlit>=1.30.0
-pandas>=2.0.0
-openai>=1.0.0
-python-dotenv>=1.0.0
+Create a .env file:
 
-4. Configure the API key
+OPENROUTER_API_KEY=your_api_key_here
 
-Create a .env file in the project root:
-
-OPENROUTER_API_KEY=your_openrouter_api_key_here
-
-Keep the key private. Never commit .env or real API credentials to
-GitHub.
-
-5. Run the application
+4. Launch the application
 
 streamlit run app.py
+🤖 IBM Bob Integration
 
-Open the local Streamlit URL shown in the terminal, usually
-http://localhost:8501.
+IBM Bob was used as an AI coding assistant to support project planning, code implementation, data-processing logic, testing, and documentation.
 
-🧑‍💻 How to Use
+This project demonstrates how AI-assisted development can help transform an idea into a practical application.
 
-Upload marketing_campaign.csv or a compatible customer CSV.
+🚀 Future Enhancements
+Bulk email generation
+A/B testing for subject lines
+Advanced customer segmentation
+Scheduled campaigns and email delivery
+Cloud deployment and user authentication
 
-In Campaign Generator, optionally filter by segment.
+Current capability: Generates and stores email drafts. Automatic email delivery is planned as a future enhancement.
 
-Select a customer and review their profile.
+<div align="center">
 
-Choose Professional, Friendly, or Urgent tone.
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:071A2F,100:1261FE&height=3&section=header" width="100%" alt=""/>
 
-Click Generate Email.
+Built with Python · Data Analytics · Generative AI
 
-Review the subject and body, then download the draft if needed.
+MOHD HAMZA
+AI Email Campaign Automation Agent
 
-Use Analytics to explore customer patterns.
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:00D4FF,50:1261FE,100:071A2F&height=100&section=footer" width="100%" alt="Decorative footer"/>
 
-Use History to review saved drafts or export the records as CSV.
-
-🤖 IBM Bob: Development Contribution
-
-IBM Bob Agent Mode was used as the primary AI coding assistant during
-development.
-
-Analysis: Examined the notebook and dataset to understand data
-structure and segmentation logic.
-
-Planning: Helped shape the three-module design and database
-approach.
-
-Implementation: Assisted in creating app.py, gemini.py,
-database.py, and requirements.txt.
-
-Testing: Supported validation of CSV loading, segmentation,
-database operations, LLM output parsing, and error handling.
-
-Documentation: Helped prepare the project contribution log.
-
-Read more in
-IBM_BOB_USAGE.md.
-
-✅ Testing & Validation
-
-The project documentation records checks for:
-
-Loading the provided tab-separated dataset (2,240 rows and 29
-columns).
-
-Computing Age, Total_Purchases, Total_Spent, Customer_Value,
-and Segment.
-
-Initializing SQLite with fresh and existing databases.
-
-Saving and retrieving records through SQLite.
-
-Parsing SUBJECT: and BODY: from representative LLM responses.
-
-Producing TXT and CSV downloads.
-
-Handling empty segments, missing columns, API failures, and empty
-history.
-
-🔭 Future Roadmap
-
-Batch generation with progress tracking.
-
-Reusable email templates for recurring campaigns.
-
-A/B subject line variants for split testing.
-
-Multi-model selection across supported OpenRouter models.
-
-Scheduled campaigns and approval workflows.
-
-Email delivery integration with providers such as SendGrid,
-Mailgun, or AWS SES.
-
-Authentication for shared deployments.
-
-Cloud deployment using Docker and a hosting platform.
-
-🔐 Security Notes
-
-Store API credentials in .env.
-
-Add .env, .venv/, history.db, __pycache__/, and *.pyc to
-.gitignore.
-
-Do not upload customer data or secrets without permission.
-
-Review generated email content before using it in a real campaign.
-
-📄 License
-
-This project was developed as By MOHD HAMZA
-
-::: {align="center"}
-Built with Python, customer data, and AI-assisted development.
-
-<sub>{=html}AI Email Campaign Automation Agent 
-AI</sub>{=html}
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:00D4FF,50:0F6CBD,100:071A2F&height=100&section=footer" width="100%" alt="Project footer"/>{=html}
-:::
+</div>
