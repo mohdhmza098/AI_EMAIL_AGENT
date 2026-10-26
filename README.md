@@ -32,7 +32,7 @@ This project combines **customer analytics and generative AI** to create persona
 
 <div align="center">
 
-<img src="![AI Email Campaign Workflow](project_workflow.png)" width="100%" alt="AI Email Campaign Automation Workflow"/>
+![AI Email Campaign Workflow](project_workflow.png)
 
 </div>
 
