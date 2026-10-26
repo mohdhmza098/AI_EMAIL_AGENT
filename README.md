@@ -18,7 +18,7 @@
 <img src="https://img.shields.io/badge/IBM%20Bob-AI%20Coding%20Assistant-1261FE?style=for-the-badge&logo=ibm&logoColor=white" alt="IBM Bob"/>
 
 </div>
-🔄 Project Workflow
+**🔄 Project Workflow**
 
 ![AI Email Campaign Workflow](project_workflow.png)
 
